@@ -15,6 +15,11 @@ namespace Exercise8
             WageCalc(10, 73);
             Console.ReadKey();
         }
+
+        static string FormatCurrency(double currency)
+        {
+            return $"{currency:0.00}"; 
+        }
         
         static void WageCalc(double basePay, int hoursWorked)
         {
@@ -22,7 +27,7 @@ namespace Exercise8
             double wage;
             if (basePay < minWage)
             {
-                Console.WriteLine($"Error. Minimum wage is ${minWage} per hour");
+                Console.WriteLine($"Error. Minimum wage is ${FormatCurrency(minWage)} per hour");
                 return;
             }
 
@@ -41,7 +46,7 @@ namespace Exercise8
                 wage = basePay * hoursWorked + (hoursWorked - normalHours) * overtimePay;
             }
                 
-            Console.WriteLine($"Wage: ${wage}");
+            Console.WriteLine($"Wage: ${FormatCurrency(wage)}");
         }
     }
 }
