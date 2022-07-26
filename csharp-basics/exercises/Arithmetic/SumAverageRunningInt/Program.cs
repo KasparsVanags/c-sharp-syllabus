@@ -17,6 +17,7 @@ namespace SumAverageRunningInt
             }
             Console.WriteLine($"The sum of {lowerBound} and {upperBound} is {sum}");
             Console.WriteLine($"The average is {average}");
+            Console.ReadKey();
         }
     }
 }

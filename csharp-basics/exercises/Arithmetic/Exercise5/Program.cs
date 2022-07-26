@@ -25,7 +25,8 @@ namespace Exercise5
             {
                 Console.WriteLine("You must input a number!");
             }
-            
+
+            Console.ReadKey();
         }
     }
 }

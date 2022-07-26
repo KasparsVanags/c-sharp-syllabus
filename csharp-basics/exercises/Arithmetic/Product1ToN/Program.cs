@@ -16,6 +16,7 @@ namespace Product1ToN
             }
             
             Console.WriteLine($"The product of {toNumber} is {result}");
+            Console.ReadKey();
         }
     }
 }

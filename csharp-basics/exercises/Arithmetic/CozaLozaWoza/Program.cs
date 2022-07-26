@@ -37,6 +37,8 @@ namespace CozaLozaWoza
                     Console.WriteLine();
                 }
             }
+
+            Console.ReadKey();
         }
     }
 }

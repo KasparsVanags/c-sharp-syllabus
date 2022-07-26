@@ -13,6 +13,7 @@ namespace Exercise8
             WageCalc(7.5, 35);
             WageCalc(8.2, 47);
             WageCalc(10, 73);
+            Console.ReadKey();
         }
         
         static void WageCalc(double basePay, int hoursWorked)

@@ -6,9 +6,13 @@ namespace exercise9
     {
         public static void Main(string[] args)
         {
+            CalculateBmi();
+        }
+
+        static void CalculateBmi()
+        {
             const double minNormalBmi = 18.5;
             const double maxNormalBmi = 25;
-            
             Console.WriteLine("Input your weight in kilograms.");
             if (int.TryParse(Console.ReadLine(), out int weight))
             {
@@ -34,6 +38,7 @@ namespace exercise9
             }
             
             Console.WriteLine("Error. You must input a number.");
+            CalculateBmi();
         }
     }
 }

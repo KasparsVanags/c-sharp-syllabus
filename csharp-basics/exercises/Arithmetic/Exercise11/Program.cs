@@ -7,6 +7,7 @@ namespace Exercise11
     {
         public static void Main(string[] args)
         {
+            Console.WriteLine(Moran(133));
             string Moran(int inputNum)
             {
                 var numArr = inputNum.ToString().Select(c => Convert.ToInt32(c.ToString())).ToArray();
@@ -26,6 +27,8 @@ namespace Exercise11
 
                 return "Neither";
             }
+
+            Console.ReadKey();
         }
     }
 }

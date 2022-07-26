@@ -13,6 +13,8 @@ namespace Exercise1
                        int1 + int2 == 15 ||
                        Math.Abs(int1 - int2) == 15;
             }
+
+            Console.ReadKey();
         }
     }
 }

@@ -9,6 +9,7 @@ namespace CheckOddEven
             const int number = 2;
             Console.WriteLine(number % 2 == 0 ? "Even Number" : "Odd Number");
             Console.WriteLine("bye!");
+            Console.ReadKey();
         }
     }
 }
