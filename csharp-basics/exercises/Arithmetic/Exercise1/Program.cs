@@ -6,7 +6,12 @@ namespace Exercise1
     {
         public static void Main(string[] args)
         {
-            bool TrueOrFalse(int int1, int int2)
+            Console.Write("Input first number:");
+            int numberOne = int.Parse(Console.ReadLine());
+            Console.Write("Input second number:");
+            int numberTwo = int.Parse(Console.ReadLine());
+            Console.WriteLine(IsFifteen(numberOne, numberTwo));
+            bool IsFifteen(int int1, int int2)
             {
                 return int1 == 15 ||
                        int2 == 15 ||

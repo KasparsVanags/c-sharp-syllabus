@@ -6,8 +6,8 @@ namespace CheckOddEven
     {
         public static void Main(string[] args)
         {
-            const int number = 2;
-            Console.WriteLine(number % 2 == 0 ? "Even Number" : "Odd Number");
+            const int numberToCheck = 2;
+            Console.WriteLine(numberToCheck % 2 == 0 ? "Even Number" : "Odd Number");
             Console.WriteLine("bye!");
             Console.ReadKey();
         }

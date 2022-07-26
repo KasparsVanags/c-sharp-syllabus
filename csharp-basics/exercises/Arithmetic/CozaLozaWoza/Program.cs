@@ -6,7 +6,8 @@ namespace CozaLozaWoza
     {
         public static void Main(string[] args)
         {
-            for (var i = 1; i <= 110; i++)
+            const int printUpToNumber = 110;
+            for (var i = 1; i <= printUpToNumber; i++)
             {
                 var word = false;
                 if (i % 3 == 0)

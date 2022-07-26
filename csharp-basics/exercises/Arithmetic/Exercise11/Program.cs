@@ -7,7 +7,9 @@ namespace Exercise11
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine(Moran(133));
+            Console.Write("Input a number:");
+            int input = int.Parse(Console.ReadLine());
+            Console.WriteLine(Moran(input));
             string Moran(int inputNum)
             {
                 var numArr = inputNum.ToString().Select(c => Convert.ToInt32(c.ToString())).ToArray();

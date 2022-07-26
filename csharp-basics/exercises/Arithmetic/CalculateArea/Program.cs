@@ -11,34 +11,32 @@ namespace CalculateArea
 
         public static void GetMenu()
         {
-            while (true)
-            {
-                Console.WriteLine("Geometry Calculator\n");
-                Console.WriteLine("1. Calculate the Area of a Circle");
-                Console.WriteLine("2. Calculate the Area of a Rectangle");
-                Console.WriteLine("3. Calculate the Area of a Triangle");
-                Console.WriteLine("4. Quit\n");
-                Console.WriteLine("Enter your choice (1-4) : ");
+            Console.WriteLine("Geometry Calculator\n");
+            Console.WriteLine("1. Calculate the Area of a Circle");
+            Console.WriteLine("2. Calculate the Area of a Rectangle");
+            Console.WriteLine("3. Calculate the Area of a Triangle");
+            Console.WriteLine("4. Quit\n");
+            Console.WriteLine("Enter your choice (1-4) : ");
                 
-                var input = Console.ReadKey().KeyChar;
-                switch (input)
-                {
-                    case '1':
-                        CalculateCircleArea();
-                        break;
-                    case '2':
-                        CalculateRectangleArea();
-                        break;
-                    case '3':
-                        CalculateTriangleArea();
-                        break;
-                    case '4':
-                        return;
-                    default:
-                        Console.WriteLine("\nInvalid Input");
-                        continue;
+            var input = Console.ReadKey().KeyChar;
+            switch (input)
+            {
+                case '1':
+                    CalculateCircleArea();
+                    break;
+                case '2':
+                    CalculateRectangleArea();
+                    break;
+                case '3':
+                    CalculateTriangleArea();
+                    break;
+                case '4':
+                    return;
+                default:
+                    Console.WriteLine("\nInvalid Input");
+                    GetMenu();
+                    break;
                 }
-            }
         }
 
         public static void CalculateCircleArea()
