@@ -21,6 +21,7 @@ namespace Exercise6
             arr[arr.Length - 1] = numToEnter;
             Console.WriteLine(string.Join(" ", arr));
             Console.WriteLine(string.Join(" ", copyArr));
+            Console.ReadKey();
         }
     }
 }

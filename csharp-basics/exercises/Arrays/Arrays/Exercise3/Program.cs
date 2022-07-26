@@ -11,6 +11,7 @@ namespace Exercise3
             var average = numbers.AsQueryable().Average();
             
             Console.WriteLine("Average value of the array elements is : " + average);
+            Console.ReadKey();
         }
     }
 }

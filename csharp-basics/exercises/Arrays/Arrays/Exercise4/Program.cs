@@ -18,6 +18,8 @@ namespace Exercise4
             {
                 Console.WriteLine("Contains!");
             }
+
+            Console.ReadKey();
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Exercise5
             
             Console.WriteLine("Index position of 36 is: " + indexOfElement36);
             Console.WriteLine("Index position of 29 is: " + indexOfElement29);
+            Console.ReadKey();
         }
     }
 }
