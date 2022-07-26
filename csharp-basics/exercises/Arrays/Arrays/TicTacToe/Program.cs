@@ -34,29 +34,17 @@ namespace TicTacToe
             {
                 Console.WriteLine();
                 InitBoard();
-                return;
             }
-
-            if (choice == 'n')
+            else
             {
                 Console.WriteLine("\nThank you for playing. Exiting...");
                 Environment.Exit(0);
             }
-            Console.WriteLine("Error. Press y or n.");
         }
-        
+
         private static bool IsGameOver()
         {
-            if (GetDraw())
-            {
-                return true;
-            }
-            if (GetWinner() != '-')
-            {
-                return true;
-            }
-
-            return false;
+            return GetDraw() || GetWinner() != '-';
         }
         
         private static char GetWinner()

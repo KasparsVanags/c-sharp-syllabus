@@ -106,6 +106,15 @@ namespace Exercise8
             }
             
             Console.WriteLine();
+            if (GameLost())
+            {
+                Console.WriteLine("You lost!");
+            }
+
+            if (GameWon())
+            {
+                Console.WriteLine("You won!");
+            }
         }
 
         static void DrawHangman()
@@ -140,8 +149,7 @@ namespace Exercise8
                     Console.WriteLine("   |   |   ");
                     Console.WriteLine("   O   |   ");
                     Console.WriteLine(@"  /|\  |   ");
-                    Console.WriteLine("       |   ");
-                    Console.WriteLine("       |   ");
+                    Console.Write(string.Concat(Enumerable.Repeat("       |   \n", 2)));
                     Console.WriteLine("===========");
                     break;
                 }
@@ -151,8 +159,7 @@ namespace Exercise8
                     Console.WriteLine("   |   |   ");
                     Console.WriteLine("   O   |   ");
                     Console.WriteLine(@"  /|   |   ");
-                    Console.WriteLine("       |   ");
-                    Console.WriteLine("       |   ");
+                    Console.Write(string.Concat(Enumerable.Repeat("       |   \n", 2)));
                     Console.WriteLine("===========");
                     break;
                 }
@@ -162,8 +169,7 @@ namespace Exercise8
                     Console.WriteLine("   |   |   ");
                     Console.WriteLine("   O   |   ");
                     Console.WriteLine("   |   |   ");
-                    Console.WriteLine("       |   ");
-                    Console.WriteLine("       |   ");
+                    Console.Write(string.Concat(Enumerable.Repeat("       |   \n", 2)));
                     Console.WriteLine("===========");
                     break;
                 }
@@ -172,9 +178,7 @@ namespace Exercise8
                     Console.WriteLine("   +---+   ");
                     Console.WriteLine("   |   |   ");
                     Console.WriteLine("   O   |   ");
-                    Console.WriteLine("       |   ");
-                    Console.WriteLine("       |   ");
-                    Console.WriteLine("       |   ");
+                    Console.Write(string.Concat(Enumerable.Repeat("       |   \n", 3)));
                     Console.WriteLine("===========");
                     break;
                 }
@@ -182,32 +186,21 @@ namespace Exercise8
                 {
                     Console.WriteLine("   +---+   ");
                     Console.WriteLine("   |   |   ");
-                    Console.WriteLine("       |   ");
-                    Console.WriteLine("       |   ");
-                    Console.WriteLine("       |   ");
-                    Console.WriteLine("       |   ");
+                    Console.Write(string.Concat(Enumerable.Repeat("       |   \n", 4)));
                     Console.WriteLine("===========");
                     break;
                 }
                 case 7:
                 {
                     Console.WriteLine("   +---+   ");
-                    Console.WriteLine("       |   ");
-                    Console.WriteLine("       |   ");
-                    Console.WriteLine("       |   ");
-                    Console.WriteLine("       |   ");
-                    Console.WriteLine("       |   ");
+                    Console.Write(string.Concat(Enumerable.Repeat("       |   \n", 5)));
                     Console.WriteLine("===========");
                     break;
                 }
                 case 8:
                 {
-                    Console.WriteLine("           ");
-                    Console.WriteLine("           ");
-                    Console.WriteLine("           ");
-                    Console.WriteLine("           ");
-                    Console.WriteLine("           ");
-                    Console.WriteLine("           ");
+                    
+                    Console.Write(string.Concat(Enumerable.Repeat("           \n", 6)));
                     Console.WriteLine("===========");
                     break;
                 }
@@ -221,24 +214,12 @@ namespace Exercise8
 
         static bool GameWon()
         {
-            if (hiddenWord.Contains('_'))
-            {
-                return false;
-            }
-            
-            Console.WriteLine("You won!");
-            return true;
+            return !hiddenWord.Contains('_');
         }
 
         static bool GameLost()
         {
-            if (guessesRemaining > 0)
-            {
-                return false;
-            }
-            
-            Console.WriteLine("You lost!");
-            return true;
+            return guessesRemaining == 0;
         }
     }
 }
