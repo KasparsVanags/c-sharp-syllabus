@@ -6,23 +6,24 @@ namespace PositiveNegativeNumber
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter the number.");
-            var input = Console.ReadKey();
-            /*
-            fixme
-            if (?)
+            var watingForInput = true;
+            while (watingForInput)
             {
-                Console.WriteLine("Number is positive");
-            } 
-            else if (?) 
-            {
-                Console.WriteLine("Number is negative");
-            } 
-            else 
-            {
-                Console.WriteLine("Number is zero");
+                Console.Write("Enter the number: ");
+                var input = int.Parse(Console.ReadLine());
+                if (input > 0)
+                {
+                    Console.WriteLine("Number is positive");
+                }
+                else if (input < 0)
+                {
+                    Console.WriteLine("Number is negative");
+                }
+                else
+                {
+                    Console.WriteLine("Number is zero");
+                }
             }
-            */
         }
     }
 }
