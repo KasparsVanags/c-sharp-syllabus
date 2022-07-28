@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TenBillion", "TenBillion\Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GetTheCentury", "GetTheCentury\GetTheCentury.csproj", "{3FFBD995-2B38-44A5-BDC8-E1E767E0EFCB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintDayInWord", "PrintDayInWord\PrintDayInWord.csproj", "{0F62F53D-3B0B-4912-83D1-2185D45B1A34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneKeyPad", "PhoneKeyPad\PhoneKeyPad.csproj", "{7768BC76-54C9-46F9-9B58-BB68995AADEF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{3FFBD995-2B38-44A5-BDC8-E1E767E0EFCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FFBD995-2B38-44A5-BDC8-E1E767E0EFCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FFBD995-2B38-44A5-BDC8-E1E767E0EFCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F62F53D-3B0B-4912-83D1-2185D45B1A34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F62F53D-3B0B-4912-83D1-2185D45B1A34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F62F53D-3B0B-4912-83D1-2185D45B1A34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F62F53D-3B0B-4912-83D1-2185D45B1A34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7768BC76-54C9-46F9-9B58-BB68995AADEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7768BC76-54C9-46F9-9B58-BB68995AADEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7768BC76-54C9-46F9-9B58-BB68995AADEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7768BC76-54C9-46F9-9B58-BB68995AADEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
