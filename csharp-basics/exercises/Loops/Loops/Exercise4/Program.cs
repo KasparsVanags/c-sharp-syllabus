@@ -8,8 +8,11 @@ namespace Exercise4
         {
             char[] vowels = { 'a', 'e', 'i', 'o', 'u' };
             Console.WriteLine("Using for:");
-            for(var i = 0; i < vowels.Length; i++)
+            for (var i = 0; i < vowels.Length; i++)
+            {
                 Console.WriteLine(vowels[i]);
+            }
+
             Console.WriteLine("Using foreach:");
             foreach (var vowel in vowels)
             {
