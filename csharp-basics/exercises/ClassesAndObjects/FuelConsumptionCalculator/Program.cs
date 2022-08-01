@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FuelConsumptionCalculator
 {
@@ -10,31 +6,23 @@ namespace FuelConsumptionCalculator
     {
         private static void Main(string[] args)
         {
-            int startKilometers;
-            int liters;
-            
-            Console.WriteLine();
-
-            Car car = new Car(0);
-            Car car1 = new Car(0);
-            for (int i = 0; i < 3; i++)
+            double startKilometers;
+            double liters;
+            double endKilometers;
+            var waitingForInput = true;
+            while (waitingForInput)
             {
-                Console.Write("Enter first reading: ");
-                startKilometers = Convert.ToInt32(Console.ReadLine());    
-                Console.Write("Enter liters reading: ");
-                liters = Convert.ToInt32(Console.ReadLine());
-                car.FillUp(startKilometers, liters);
-                
-                Console.Write("Enter first reading: ");
-                startKilometers = Convert.ToInt32(Console.ReadLine());    
-                Console.Write("Enter liters reading: ");
-                liters = Convert.ToInt32(Console.ReadLine());
-                car1.FillUp(startKilometers, liters);
+                Console.Write("Enter initial odo reading with a full gas tank: ");
+                startKilometers = Convert.ToInt32(Console.ReadLine());
+                var car = new Car(startKilometers);
+                Console.Write("Liters refilled: ");
+                liters = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Enter odo reading: ");
+                endKilometers = Convert.ToDouble(Console.ReadLine());
+                car.FillUp(endKilometers, liters);
+                Console.WriteLine(@"Kilometers per liter are " + car.CalculateConsumption() + 
+                                  " gasHog: " + car.GasHog()+ ", economyCar: " + car.EconomyCar());
             }
-
-            Console.WriteLine("Kilometers per liter are " + car.CalculateConsumption() + " gasHog:" + car.GasHog());
-            Console.WriteLine("Car1 Kilometers per liter are " + car1.CalculateConsumption()+ " economyCar:" + car.EconomyCar());
-            Console.ReadKey();
         }
     }
 }

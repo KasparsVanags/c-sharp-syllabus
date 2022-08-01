@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace VideoStore
 {
-    class Program
+    class VideoStoreTest
     {
-        private const int _countOfMovies = 3;
+        private const int CountOfMovies = 3;
         private static VideoStore _videoStore = new VideoStore();
         private static void Main(string[] args)
         {
@@ -19,7 +15,8 @@ namespace VideoStore
                 Console.WriteLine("Choose 1 to fill video store");
                 Console.WriteLine("Choose 2 to rent video (as user)");
                 Console.WriteLine("Choose 3 to return video (as user)");
-                Console.WriteLine("Choose 4 to list inventory");
+                Console.WriteLine("Choose 4 to rate video (as user)");
+                Console.WriteLine("Choose 5 to list inventory");
 
                 int n = Convert.ToByte(Console.ReadLine());
 
@@ -37,6 +34,9 @@ namespace VideoStore
                         ReturnVideo();
                         break;
                     case 4:
+                        RateVideo();
+                        break;
+                    case 5:
                         ListInventory();
                         break;
                     default:
@@ -47,17 +47,20 @@ namespace VideoStore
 
         private static void ListInventory()
         {
-            _videoStore.ListInventory();
+            foreach (var video in _videoStore.ListInventory())
+            {
+                Console.WriteLine(video);
+            }
         }
 
         private static void FillVideoStore()
         {
-            for (var i = 0; i < _countOfMovies; i++)
+            for (var i = 0; i < CountOfMovies; i++)
             {
-                Console.WriteLine("Enter movie name");
+                Console.WriteLine("Enter movie name:");
                 string movieName = Console.ReadLine();
 
-                Console.WriteLine("Enter rating");
+                Console.WriteLine("Enter rating 1-10:");
                 int rating = Convert.ToInt16(Console.ReadLine());
 
                 _videoStore.AddVideo(movieName);
@@ -67,16 +70,28 @@ namespace VideoStore
 
         private static void RentVideo()
         {
-            Console.WriteLine("Enter movie name");
-            string movieName = Console.ReadLine();
+            string movieName = GetName();
             _videoStore.Checkout(movieName);
         }
 
         private static void ReturnVideo()
         {
-            Console.WriteLine("Enter movie name");
-            string movieName = Console.ReadLine();
+            string movieName = GetName();
             _videoStore.ReturnVideo(movieName);
+        }
+
+        private static void RateVideo()
+        {
+            string movieName = GetName();
+            Console.WriteLine("Enter your rating 1 - 10");
+            double rating = double.Parse(Console.ReadLine());
+            _videoStore.TakeUsersRating(rating, movieName);
+        }
+
+        static string GetName()
+        {
+            Console.WriteLine("Enter movie name:");
+            return Console.ReadLine();
         }
     }
 }
