@@ -21,7 +21,7 @@ namespace Exercise1
                 }
                 
                 Console.WriteLine($"Enter 0 - {Product.ProductList.Count - 1} to select a product");
-                SelectProduct((int)GetInput());
+                SelectProduct(GetInput());
                 Console.WriteLine("1 - change price, 2 - change amount");
                 if (GetInput() == 1)
                 {
@@ -34,9 +34,9 @@ namespace Exercise1
             }
         }
 
-        static double GetInput()
+        static int GetInput()
         {
-            return double.Parse(Console.ReadLine());
+            return int.Parse(Console.ReadLine());
         }
 
         static void SelectProduct(int index)
@@ -49,14 +49,14 @@ namespace Exercise1
         static void UpdatePrice()
         {
             Console.WriteLine("Enter the new price:");
-            Product.ProductList[selection].UpdatePrice(GetInput());
+            Product.ProductList[selection].UpdatePrice(double.Parse(Console.ReadLine()));
             Console.WriteLine("Price updated!");
         }
 
         static void UpdateAmount()
         {
             Console.WriteLine("Enter the new amount:");
-            Product.ProductList[selection].UpdateAmount((int)GetInput());
+            Product.ProductList[selection].UpdateAmount(GetInput());
             Console.WriteLine("Quantity updated!");
         }
     }

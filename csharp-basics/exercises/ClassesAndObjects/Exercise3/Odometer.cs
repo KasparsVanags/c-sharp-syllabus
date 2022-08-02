@@ -32,7 +32,7 @@ namespace Exercise3
                 _mileage = 0;
             }
 
-            if (CarHasFuel())
+            if (HasCarFuel())
             {
                 return true;
             }
@@ -41,7 +41,7 @@ namespace Exercise3
             return false;
         }
 
-        private bool CarHasFuel()
+        private bool HasCarFuel()
         {
             _kmUtilLiterOfFuelBurned--;
             if (_kmUtilLiterOfFuelBurned == 0)

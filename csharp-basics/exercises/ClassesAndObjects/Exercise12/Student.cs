@@ -8,18 +8,18 @@ namespace Exercise12
         private int _testIndex = 0;
         public Student()
         {
-            _testsTaken = new string[0];
+            _testsTaken = new string[]{"No tests taken"};
         }
         
         public string[] TestsTaken => _testsTaken;
 
         public void TakeTest(ITestpaper paper, string[] answers)
         {
-            Array.Resize(ref _testsTaken, _testsTaken.Length + 1);
             var score = TestScore(paper, answers);
             var testResults = $"{paper.Subject}: {IsTestPassed(paper, score)} ({score})";
             _testsTaken[_testIndex] = testResults;
             _testIndex++;
+            Array.Resize(ref _testsTaken, _testsTaken.Length + 1);
         }
 
         private string IsTestPassed(ITestpaper paper, string score)
@@ -53,7 +53,7 @@ namespace Exercise12
             
             return Math.Round((decimal)correctAnswers / totalQuestions * 100) + "%";
         }
-
+        
         private int ConvertToNumber(string input)
         {
             return int.Parse(input.Replace("%", ""));

@@ -20,12 +20,7 @@ namespace Exercise6
 
         public bool HasSameMotherAs(Dog dog)
         {
-            if (Mother == dog.Mother && Mother != null)
-            {
-                return true;
-            }
-
-            return false;
+            return (Mother == dog.Mother && Mother != null);
         }
     }
 }

@@ -42,16 +42,11 @@ namespace Exercise7
                 interestEarned += savings.AddMonthlyInterest();
             }
             
-            Console.WriteLine($"Total deposited: {FormatCurrency(totalDeposit)}");
-            Console.WriteLine($"Total withdrawn: {FormatCurrency(totalWithdrawn)}");
-            Console.WriteLine($"Interest earned: {FormatCurrency(interestEarned)}");
-            Console.WriteLine($"Ending balance: {FormatCurrency(savings.GetBalance())}");
+            Console.WriteLine($"Total deposited: {totalDeposit.ToString("C", usdFormat)}");
+            Console.WriteLine($"Total withdrawn: {totalWithdrawn.ToString("C", usdFormat)}");
+            Console.WriteLine($"Interest earned: {interestEarned.ToString("C", usdFormat)}");
+            Console.WriteLine($"Ending balance: {savings.GetBalance().ToString("C", usdFormat)}");
             Console.ReadKey();
-            
-            string FormatCurrency(decimal currency)
-            {
-                return currency.ToString("C", usdFormat);
-            }
         }
     }
 }

@@ -9,6 +9,7 @@ namespace VideoStore
         private readonly string _title;
         private bool _checkedOut;
         private readonly List<double> _ratingList = new List<double>();
+        
         public Video(string title)
         {
             _title = title;
