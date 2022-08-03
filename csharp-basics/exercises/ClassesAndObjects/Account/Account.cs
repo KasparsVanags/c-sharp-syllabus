@@ -2,22 +2,23 @@
 {
     class Account
     {
-        private string _name;
         private double _money;
+        private readonly string _name;
 
-        public Account(string v1, double v2)
+        public Account(string name, double money)
         {
-            
+            _name = name;
+            _money = money;
         }
 
-        public double Withdrawal(double i)
+        public void Withdrawal(double amount)
         {
-            return i;
+            _money -= amount;
         }
 
-        public void Deposit(double i)
+        public void Deposit(double amount)
         {
-            
+            _money += amount;
         }
 
         public double Balance()
@@ -28,12 +29,6 @@
         public override string ToString()
         {
             return $"{_name}: {_money}";
-        }
-
-        public string Name
-        {
-            get => _name;
-            set => _name = value;
         }
     }
 }
