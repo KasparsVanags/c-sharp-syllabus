@@ -1,32 +1,52 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Exercise1
 {
     class Program
     {
-        /**
-           * Origination:
-           * Audi -> Germany
-           * BMW -> Germany
-           * Honda -> Japan
-           * Mercedes -> Germany
-           * VolksWagen -> Germany
-           * Tesla -> USA
-           */
-
         private static void Main(string[] args)
         {
-            string[] array = { "Audi", "BMW", "Honda", "Mercedes", "VolksWagen", "Mercedes", "Tesla" };
+            string[] carArray = { "Audi", "BMW", "Honda", "Mercedes", "VolksWagen", "Mercedes", "Tesla" };
+            var carList = carArray.ToList();
+            Console.WriteLine("List: " + string.Join(", ", carList));
+            var carHashSet = new HashSet<string>(carArray);
+            Console.WriteLine("HashSet: " + string.Join(", ", carHashSet));
+            Console.WriteLine("Dictionary: ");
+            var carDictionary = new Dictionary<string, string>();
+            foreach (var brand in carArray)
+            {
+                var country = "";
+                switch (brand)
+                {
+                    case "Audi": case "BMW": case "Mercedes": case "VolksWagen":
+                        country = "Germany";
+                        break;
+                    case "Honda":
+                        country = "Japan";
+                        break;
+                    case "Tesla":
+                        country = "USA";
+                        break;
+                }
 
-            //todo - replace array with an List and print out the results
+                try
+                {
+                    carDictionary.Add(brand, country);
+                }
+                catch (ArgumentException)
+                {
+                    Console.WriteLine("Can't add more than 1 " + brand);
+                }
+            }
+            
+            foreach (var entry in carDictionary)
+            {
+                Console.WriteLine(entry);
+            }
 
-            //todo - replace array with a HashSet and print out the results
-
-            //todo - replace array with a Dictionary (use brand as key and origination as value) and print out the results
+            Console.ReadKey();
         }
     }
 }
