@@ -22,20 +22,20 @@ namespace Exercise5
                     Console.WriteLine(numberInput + " is not happy :(");
                 }
             }
-
-            bool IsHappy(int number)
+        }
+        
+        static bool IsHappy(int number)
+        {
+            const int happy = 1;
+            var checkedNumList = new List<int>();
+            var tempNum = number;
+            do
             {
-                const int happy = 1;
-                var checkedNumList = new List<int>();
-                var tempNum = number;
-                do
-                {
-                    checkedNumList.Add(tempNum);
-                    tempNum = (int)tempNum.ToString().Select(x  => Math.Pow(x - '0', 2)).Sum();
-                } while (tempNum != happy && !checkedNumList.Contains(tempNum));
+                checkedNumList.Add(tempNum);
+                tempNum = (int)tempNum.ToString().Select(x  => Math.Pow(x - '0', 2)).Sum();
+            } while (tempNum != happy && !checkedNumList.Contains(tempNum));
 
-                return tempNum == happy;
-            }
+            return tempNum == happy;
         }
     }
 }

@@ -82,18 +82,18 @@ namespace FlightPlanner
                     Environment.Exit(0);
                 }
             }
-
-            int GetSelection(int min, int max)
+        }
+        
+        static int GetSelection(int min, int max)
+        {
+            if (int.TryParse(Console.ReadLine(), out var input) && input >= min && input <= max)
             {
-                if (int.TryParse(Console.ReadLine(), out var input) && input >= min && input <= max)
-                {
-                    return input;
-                }
-                
-                Console.WriteLine("Invalid selection, try gain:");
-                input = GetSelection(min, max);
                 return input;
             }
+                
+            Console.WriteLine("Invalid selection, try gain:");
+            input = GetSelection(min, max);
+            return input;
         }
     }
 }
