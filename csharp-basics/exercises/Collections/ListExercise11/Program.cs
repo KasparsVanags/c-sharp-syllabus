@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ListExercise11
 {
@@ -10,19 +7,29 @@ namespace ListExercise11
     {
         static void Main(string[] args)
         {
-            //TODO: Create an List with string elements
+            var carList = new List<string>
+            {
+                "Audi", "BMW", "Ferrari", "Ford", "Mercedes", "Opel", "Hennessey", "Kamaz", "Bugatti", "Volvo"
+            };
+            Console.WriteLine("A list of 10 elements:");
+            Console.WriteLine(string.Join(" ", carList));
+            carList.Insert(4, "Tesla");
+            Console.WriteLine("New value at 5h position:");
+            Console.WriteLine(string.Join(" ", carList));
+            carList[carList.Count - 1] = "RollsRoyce";
+            Console.WriteLine("Different value at last position:");
+            Console.WriteLine(string.Join(" ", carList));
+            carList.Sort();
+            Console.WriteLine("Sorted list:");
+            Console.WriteLine(string.Join(" ", carList));
+            Console.WriteLine("Car list contains Foobar?: " + carList.Contains("Foobar"));
+            Console.WriteLine("Print everything using a loop:");
+            foreach (var car in carList)
+            {
+                Console.Write(car + " ");
+            }
 
-            //TODO: Add 10 values to list
-
-            //TODO: Add new value at 5th position
-
-            //TODO: Change value at last position (Calculate last position programmatically)
-
-            //TODO: Sort your list in alphabetical order
-
-            //TODO: Check if your list contains "Foobar" element
-
-            //TODO: Print each element of list using loop
+            Console.ReadKey();
         }
     }
 }
