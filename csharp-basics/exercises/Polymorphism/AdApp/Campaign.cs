@@ -17,14 +17,14 @@ namespace AdApp
             campaign.Add(a);
         }
 
-        public int GetCost()
+        public double GetCost()
         {
             return campaign.Sum(item => item.Cost());
         }
 
         public override string ToString()
         {
-            return "Advert Campaign" + campaign + "\nTotal Cost = "+ GetCost();
+            return campaign.Aggregate("Advert Campaign", (c, ad) => c + ad) + "\nTotal Cost = " + GetCost();
         }
     }
 }
