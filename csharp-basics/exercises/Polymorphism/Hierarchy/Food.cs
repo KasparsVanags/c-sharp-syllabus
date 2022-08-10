@@ -4,7 +4,7 @@ namespace Hierarchy
     {
         public int Quantity { get; set; }
 
-        public Food(int quantity)
+        protected Food(int quantity)
         {
             Quantity = quantity;
         }

@@ -39,6 +39,7 @@ namespace VendingMachine
                 Console.WriteLine($"Sorry, that product is unavailable");
                 return false;
             }
+            
             if (price > balance)
             {
                 Console.WriteLine($"Sorry, you can't afford that");
@@ -81,12 +82,7 @@ namespace VendingMachine
 
         public bool UpdateProduct(int productNumber, string name, Money? price, int amount)
         {
-            if (productNumber < 1 || productNumber > Products.Length)
-            {
-                Console.WriteLine("Invalid product number");
-                return false;
-            }
-            
+            if (!IsProductIdValid(productNumber)) return false;
             Products[productNumber - 1].Name = name;
             if (price != null) Products[productNumber - 1].Price = (Money)price;
             Products[productNumber - 1].Available = amount;
@@ -95,38 +91,30 @@ namespace VendingMachine
         
         public bool UpdateProduct(int productNumber, int amount)
         {
-            if (productNumber < 1 || productNumber > Products.Length)
-            {
-                Console.WriteLine("Invalid product number");
-                return false;
-            }
-            
+            if (!IsProductIdValid(productNumber)) return false;
             Products[productNumber - 1].Available = amount;
             return true;
         }
 
         public bool UpdateProduct(int productNumber, Money price)
         {
-            if (productNumber < 1 || productNumber > Products.Length)
-            {
-                Console.WriteLine("Invalid product number");
-                return false;
-            }
-            
+            if (!IsProductIdValid(productNumber)) return false;
             Products[productNumber - 1].Price = price;
             return true;
         }
         
         public bool UpdateProduct(int productNumber, string name)
         {
-            if (productNumber < 1 || productNumber > Products.Length)
-            {
-                Console.WriteLine("Invalid product number");
-                return false;
-            }
-            
+            if (!IsProductIdValid(productNumber)) return false;
             Products[productNumber - 1].Name = name;
             return true;
+        }
+
+        private bool IsProductIdValid(int productId)
+        {
+            if (productId >= 1 && productId <= Products.Length) return true;
+            Console.WriteLine("Invalid product number");
+            return false;
         }
 
         public bool HasFreeSlots()

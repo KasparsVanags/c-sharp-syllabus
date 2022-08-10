@@ -20,6 +20,7 @@ namespace VendingMachine
                 Vendinator9000.AddProduct("Pepsi", new Money(0, 70), 2);
                 Vendinator9000.AddProduct("Coca-Cola VIP edition", new Money(5, 0), 1);
             }
+            
             if (selection == 2)
             {
                 Vendinator9000.AddProduct("Kvass", new Money(0, 50), 5);

@@ -9,7 +9,6 @@ namespace AdApp
         {
             _costPerPoster = lengthInCm * widthInCm * 0.0001 * ratePerSquareM;
             _copies = copies;
-            
         }
 
         private double PosterCost()
