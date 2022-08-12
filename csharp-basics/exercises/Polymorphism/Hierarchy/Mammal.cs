@@ -1,0 +1,17 @@
+namespace Hierarchy
+{
+    public abstract class Mammal : Animal
+    {
+        protected readonly string Region;
+
+        public Mammal(string name, double weight, string region) : base(name, weight)
+        {
+            Region = region;
+        }
+
+        public override string ToString()
+        {
+            return $"{GetType().Name}[{Name}, {Weight}, {Region}, {FoodEaten}]";
+        }
+    }
+}

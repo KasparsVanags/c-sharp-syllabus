@@ -1,29 +1,14 @@
-using System;
-
 namespace DragRace
 {
-    public class Audi
+    public class Audi : Car, IBoost
     {
-        private int currentSpeed = 0;
-
-        public void SpeedUp() 
+        public Audi(int topSpeed, int accelerationModifier) : base(topSpeed, accelerationModifier)
         {
-            currentSpeed;
         }
 
-        public void SlowDown() 
+        public void UseNitrousOxideEngine() 
         {
-            currentSpeed;
-        }
-
-        public string ShowCurrentSpeed() 
-        {
-            return currentSpeed.ToString();
-        }
-
-        public void StartEngine() 
-        {
-            Console.WriteLine("Rrrrrrr.....");
+            CurrentSpeed += (TopSpeed - CurrentSpeed) / 15 * AccelerationModifier;
         }
     }
 }

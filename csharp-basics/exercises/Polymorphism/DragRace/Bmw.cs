@@ -1,29 +1,9 @@
-using System;
-
 namespace DragRace
 {
-    public class Bmw
+    public class Bmw : Car
     {
-        private int currentSpeed = 0;
-
-        public void SpeedUp() 
+        public Bmw(int topSpeed, int accelerationModifier) : base(topSpeed, accelerationModifier)
         {
-            currentSpeed;
-        }
-
-        public void SlowDown() 
-        {
-            currentSpeed;
-        }
-
-        public string ShowCurrentSpeed() 
-        {
-            return currentSpeed.ToString();
-        }
-
-        public void StartEngine() 
-        {
-            Console.WriteLine("Rrrrrrr.....");
         }
     }
 }

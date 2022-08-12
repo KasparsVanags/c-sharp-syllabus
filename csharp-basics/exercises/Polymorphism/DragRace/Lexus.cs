@@ -1,34 +1,14 @@
-using System;
-
 namespace DragRace
 {
-    public class Lexus
+    public class Lexus : Car, IBoost
     {
-        private int currentSpeed = 0;
-
-        public void SpeedUp() 
+        public Lexus(int topSpeed, int accelerationModifier) : base(topSpeed, accelerationModifier)
         {
-            currentSpeed;
-        }
-
-        public void SlowDown() 
-        {
-            currentSpeed;
-        }
-
-        public string ShowCurrentSpeed() 
-        {
-            return currentSpeed.ToString();
         }
 
         public void UseNitrousOxideEngine() 
         {
-            currentSpeed;
-        }
-
-        public void StartEngine() 
-        {
-            Console.WriteLine("Rrrrrrr.....");
+            CurrentSpeed += (TopSpeed - CurrentSpeed) / 15 * AccelerationModifier;
         }
     }
 }
