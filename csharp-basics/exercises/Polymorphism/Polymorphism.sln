@@ -17,6 +17,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persons", "Persons\Persons.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VendingMachine", "VendingMachine\VendingMachine.csproj", "{8EF5CE43-0CC8-4C1E-A257-F915425898B5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScooterRental", "ScooterRental\ScooterRental.csproj", "{A4112E87-1483-4F21-9E2C-6E3588C91B02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScooterRental.Tests", "ScooterRental.Tests\ScooterRental.Tests.csproj", "{0AD39F53-3144-4DA7-8E99-43AB9C63FE34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{8EF5CE43-0CC8-4C1E-A257-F915425898B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EF5CE43-0CC8-4C1E-A257-F915425898B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EF5CE43-0CC8-4C1E-A257-F915425898B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4112E87-1483-4F21-9E2C-6E3588C91B02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4112E87-1483-4F21-9E2C-6E3588C91B02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4112E87-1483-4F21-9E2C-6E3588C91B02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4112E87-1483-4F21-9E2C-6E3588C91B02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AD39F53-3144-4DA7-8E99-43AB9C63FE34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AD39F53-3144-4DA7-8E99-43AB9C63FE34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AD39F53-3144-4DA7-8E99-43AB9C63FE34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AD39F53-3144-4DA7-8E99-43AB9C63FE34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
