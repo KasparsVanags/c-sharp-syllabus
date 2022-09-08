@@ -21,7 +21,6 @@ public class IncomeCalculatorTests
             //above limit
             new object[] { new DateTime(2020, 1, 1), 
                 new DateTime(2020, 1, 1, 1, 0, 0), 1, 20 },
-            
             //2 days
             //below limit
             new object[] { new DateTime(2020, 1, 1, 12, 0, 0), 
@@ -32,7 +31,6 @@ public class IncomeCalculatorTests
             //partially above limit
             new object[] { new DateTime(2020, 1, 1, 23, 59, 0), 
                 new DateTime(2020, 1, 2, 12, 0, 0), 1, 21 },
-            
             //5 days
             //below limit
             new object[] { new DateTime(2020, 1, 1, 12, 0, 0), 

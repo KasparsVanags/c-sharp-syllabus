@@ -101,7 +101,7 @@ public class VendingMachineTest
         {
             _vend.AddProduct(_testProduct.Name, _testProduct.Price, _testProduct.Available);
         }
-
+        
         //Assert
         _vend.AddProduct("abc", new Money(2, 00), 10).Should().BeFalse();
         _vend.Products.Should().NotContain(new Product("abc", new Money(2, 00), 10));
@@ -170,7 +170,6 @@ public class VendingMachineTest
         //Assert
         _vend.BuyProduct(1).Should().BeFalse();
         _vend.Amount.Should().BeEquivalentTo(new Money(0, 00));
-
     }
     
     [Fact]

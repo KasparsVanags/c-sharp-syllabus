@@ -12,6 +12,7 @@ public class ZebraTest : IDisposable
         Console.SetOut(_stringWriter);
         _zebra = new Zebra("Stripy", 50, "Africa");
     }
+    
     [Fact]
     public void Zebra_CanBeCreated()
     {

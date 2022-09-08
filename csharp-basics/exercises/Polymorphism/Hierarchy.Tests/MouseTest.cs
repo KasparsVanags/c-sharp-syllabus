@@ -12,6 +12,7 @@ public class MouseTest : IDisposable
         Console.SetOut(_stringWriter);
         _mouse = new Mouse("Jerry", 10, "house");
     }
+    
     [Fact]
     public void Mouse_CanBeCreated()
     {
