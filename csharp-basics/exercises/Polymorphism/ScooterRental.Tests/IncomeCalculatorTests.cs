@@ -7,6 +7,7 @@ public class IncomeCalculatorTests
     public void Income_ValidDates_CalculatesIncome
         (DateTime startTime, DateTime endTime, decimal pricePerMinute, decimal result)
     {
+        //Assert
         IncomeCalculator.Income(startTime, endTime, pricePerMinute).Should().Be(result);
     }
     

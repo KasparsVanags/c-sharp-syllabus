@@ -32,9 +32,9 @@ namespace VendingMachine
             return String.Format("{0:C}", Euros + Cents * 0.01);
         }
 
-        public decimal NumericValue()
+        public decimal GetNumericValueInCents()
         {
-            return Euros + Cents * (decimal)0.01;
+            return Euros * 100 + Cents;
         }
     }
 }
