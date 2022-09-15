@@ -1,7 +1,7 @@
 namespace Hierarchy.Tests;
 
 [Collection("Sequential")]
-public class TigerTest : IDisposable
+public class TigerTest
 {
     private readonly Tiger _tiger;
     private readonly StringWriter _stringWriter;
@@ -52,10 +52,5 @@ public class TigerTest : IDisposable
         _tiger.Eat(new Vegetable(5));
         //Assert
         _stringWriter.ToString().Trim().Should().Be("Tiger are not eating that type of food!");
-    }
-
-    public void Dispose()
-    {
-        _stringWriter.Dispose();
     }
 }

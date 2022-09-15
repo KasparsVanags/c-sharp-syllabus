@@ -20,7 +20,7 @@ public class AnimalTest
     }
     
     [Fact]
-    public void Animal_OnCreation_IsNormal()
+    public void Animal_createDogWeight100_DogWithWeight100IsCreated()
     {
         //Act
         var animal = new TestAnimal("Dog", 100);

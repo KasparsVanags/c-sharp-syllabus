@@ -1,7 +1,7 @@
 namespace Hierarchy.Tests;
 
 [Collection("Sequential")]
-public class CatTest : IDisposable
+public class CatTest
 {
     private readonly StringWriter _stringWriter;
     private readonly Cat _cat;
@@ -33,10 +33,5 @@ public class CatTest : IDisposable
         _cat.MakeSound();
         //Assert
        _stringWriter.ToString().TrimEnd().Should().Be("Meowww");
-    }
-
-    public void Dispose()
-    {
-        _stringWriter.Dispose();
     }
 }

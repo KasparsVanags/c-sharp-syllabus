@@ -1,7 +1,7 @@
 namespace Hierarchy.Tests;
 
 [Collection("Sequential")]
-public class MouseTest : IDisposable
+public class MouseTest
 {
     private readonly Mouse _mouse;
     private readonly StringWriter _stringWriter;
@@ -52,10 +52,5 @@ public class MouseTest : IDisposable
         _mouse.Eat(new Meat(5));
         //Assert
         _stringWriter.ToString().Trim().Should().Be("Mouse are not eating that type of food!");
-    }
-
-    public void Dispose()
-    {
-        _stringWriter.Dispose();
     }
 }

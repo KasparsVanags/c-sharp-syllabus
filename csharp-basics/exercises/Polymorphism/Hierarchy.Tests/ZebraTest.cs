@@ -1,7 +1,7 @@
 namespace Hierarchy.Tests;
 
 [Collection("Sequential")]
-public class ZebraTest : IDisposable
+public class ZebraTest
 {
     private readonly Zebra _zebra;
     private readonly StringWriter _stringWriter;
@@ -52,10 +52,5 @@ public class ZebraTest : IDisposable
         _zebra.Eat(new Meat(5));
         //Assert
         _stringWriter.ToString().Trim().Should().Be("Zebra are not eating that type of food!");
-    }
-
-    public void Dispose()
-    {
-        _stringWriter.Dispose();
     }
 }
