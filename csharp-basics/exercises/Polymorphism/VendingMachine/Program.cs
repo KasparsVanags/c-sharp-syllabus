@@ -2,7 +2,7 @@
 
 namespace VendingMachine
 {
-    internal class Program
+    internal static class Program
     {
         private static readonly VendingMachine Vendinator9000 = new ("Vendinator9000", 10);
 
@@ -78,7 +78,11 @@ namespace VendingMachine
             Console.WriteLine($"Accepted coins - {string.Join(" | ", Vendinator9000.AcceptedMoney)}");
             var coin = Array.ConvertAll(Console.ReadLine().Split(','), int.Parse);
             Console.Clear();
-            Vendinator9000.InsertCoin(new Money(coin[0], coin[1]));
+            var returned = Vendinator9000.InsertCoin(new Money(coin[0], coin[1]));
+            if (!returned.Equals(new Money()))
+            {
+                Console.WriteLine($"{returned} returned");
+            }
         }
 
         static void PurchaseMenu()
@@ -88,7 +92,10 @@ namespace VendingMachine
             Console.WriteLine("Enter product number:");
             var selection = int.Parse(Console.ReadLine());
             Console.Clear();
-            Vendinator9000.BuyProduct(selection);
+            if (Vendinator9000.BuyProduct(selection))
+            {
+                Vendinator9000.ReturnMoney();
+            }
         }
 
         static void AddProductMenu()
@@ -96,7 +103,7 @@ namespace VendingMachine
             Console.Clear();
             Console.WriteLine("Slot status:");
             Console.WriteLine(Vendinator9000.GetAllProducts());
-            if (!Vendinator9000.HasFreeSlots())
+            if (Array.FindIndex(Vendinator9000.Products, product => product.Name == null) != -1)
             {
                 Console.WriteLine("No free, unlabeled slots.");
                 Console.WriteLine("1 - return to main menu, 2 - update a slot");
@@ -128,34 +135,14 @@ namespace VendingMachine
             var productNumber = GetSelection(1, Vendinator9000.Products.Length);
             Console.Clear();
             Console.WriteLine($"Selected {Vendinator9000.Products[productNumber - 1]}");
-            Console.WriteLine("1 - update name, 2 - update price, 3 - update count, 4 - replace");
-            var selection = GetSelection(1, 4);
-            switch (selection)
-            {
-                case 1:
-                    Console.WriteLine("Enter the new name:");
-                    Vendinator9000.UpdateProduct(productNumber, Console.ReadLine());
-                    break;
-                case 2:
-                    Console.WriteLine("Enter the new price(x,xx)");
-                    var splitPrice = Array.ConvertAll(Console.ReadLine().Split(','), int.Parse);
-                    var newPrice = new Money(splitPrice[0], splitPrice[1]);
-                    Vendinator9000.UpdateProduct(productNumber, newPrice);
-                    break;
-                case 3:
-                    Console.WriteLine("Enter the new count:");
-                    Vendinator9000.UpdateProduct(productNumber, int.Parse(Console.ReadLine()));
-                    break;
-                case 4:
-                    Console.WriteLine("Enter name, price(x,xx) and count separated by space");
-                    var productInfo = Console.ReadLine().Split(" ");
-                    var name = productInfo[0];
-                    var priceArr = Array.ConvertAll(productInfo[1].Split(','), int.Parse);
-                    var price = new Money(priceArr[0], priceArr[1]);
-                    var count = int.Parse(productInfo[2]);
-                    Vendinator9000.UpdateProduct(productNumber, name, price, count);
-                    break;
-            }
+            Console.WriteLine("Enter name, price(x,xx) and count separated by space");
+            var productInfo = Console.ReadLine().Split(" ");
+            var name = productInfo[0];
+            var priceArr = Array.ConvertAll(productInfo[1].Split(','), int.Parse);
+            var price = new Money(priceArr[0], priceArr[1]);
+            var count = int.Parse(productInfo[2]);
+            Vendinator9000.UpdateProduct(productNumber, name, price, count);
+            
             
             Console.Clear();
         }

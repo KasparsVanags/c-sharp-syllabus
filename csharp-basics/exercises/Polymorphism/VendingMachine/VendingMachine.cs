@@ -20,20 +20,33 @@ namespace VendingMachine
         
         public Money InsertCoin(Money amount)
         {
-            if (AcceptedMoney.Contains(amount.ToString()))
+            
+            if (!AcceptedMoney.Contains(amount.ToString()))
             {
-                Amount = Amount.Add(amount);
-                return Amount;
+                return amount;
             }
             
-            Console.WriteLine($"Sorry, we accept only {string.Join(" | ", AcceptedMoney)} coins");
-            return amount;
+            Amount = Amount.Add(amount);
+            return new Money();
+        }
+
+        public Money ReturnMoney()
+        {
+            if (Amount.GetNumericValueInCents() == 0)
+            {
+                return Amount;
+            } 
+            
+            var amountToReturn = Amount;
+            Amount = new Money();
+            Console.WriteLine($"{amountToReturn} returned");
+            return amountToReturn;
         }
 
         public bool BuyProduct(int index)
         {
-            var price = Products[index - 1].Price.NumericValue();
-            var balance = Amount.NumericValue();
+            var price = Products[index - 1].Price.GetNumericValueInCents();
+            var balance = Amount.GetNumericValueInCents();
             if (Products[index - 1].Available < 1)
             {
                 Console.WriteLine($"Sorry, that product is unavailable");
@@ -49,21 +62,7 @@ namespace VendingMachine
             Products[index - 1].Available += -1;
             Amount = Amount.Subtract(Products[index - 1].Price);
             Console.WriteLine($"Thank you, enjoy your {Products[index - 1].Name}");
-            ReturnMoney();
             return true;
-        }
-        
-        public Money ReturnMoney()
-        {
-            if (Amount.NumericValue() == 0)
-            {
-                return Amount;
-            }
-            
-            var amountToReturn = Amount;
-            Amount = new Money();
-            Console.WriteLine($"{amountToReturn} returned");
-            return amountToReturn;
         }
 
         public bool AddProduct(string name, Money price, int count)
@@ -75,7 +74,13 @@ namespace VendingMachine
                 return false;
             }
 
-            Products[emptySlot] = new Product(name, price, count);
+            var productToBeAdded = new Product(name, price, count);
+            if (!ProductValidator.Validate(productToBeAdded))
+            {
+                return false;
+            }
+            
+            Products[emptySlot] = productToBeAdded;
             Console.WriteLine($"Added {name} in slot {emptySlot + 1}");
             return true;
         }
@@ -83,43 +88,26 @@ namespace VendingMachine
         public bool UpdateProduct(int productNumber, string name, Money? price, int amount)
         {
             if (!IsProductIdValid(productNumber)) return false;
-            Products[productNumber - 1].Name = name;
-            if (price != null) Products[productNumber - 1].Price = (Money)price;
-            Products[productNumber - 1].Available = amount;
-            return true;
-        }
-        
-        public bool UpdateProduct(int productNumber, int amount)
-        {
-            if (!IsProductIdValid(productNumber)) return false;
-            Products[productNumber - 1].Available = amount;
-            return true;
-        }
+            if (!ProductValidator.Validate(new Product(name, price ?? new Money(1, 1), amount)))
+            {
+                return false;
+            }
+            
+            if (price != null)
+            {
+                Products[productNumber - 1].Price = (Money)price;
+            }
 
-        public bool UpdateProduct(int productNumber, Money price)
-        {
-            if (!IsProductIdValid(productNumber)) return false;
-            Products[productNumber - 1].Price = price;
-            return true;
-        }
-        
-        public bool UpdateProduct(int productNumber, string name)
-        {
-            if (!IsProductIdValid(productNumber)) return false;
             Products[productNumber - 1].Name = name;
+            Products[productNumber - 1].Available = amount;
             return true;
         }
 
         private bool IsProductIdValid(int productId)
         {
-            if (productId >= 1 && productId <= Products.Length) return true;
+            if (productId >= 1 && productId <= Products.Length && Products[productId - 1].Name != null) return true;
             Console.WriteLine("Invalid product number");
             return false;
-        }
-
-        public bool HasFreeSlots()
-        {
-            return Array.FindIndex(Products, product => product.Name == null) != -1;
         }
 
         public string GetAvailableProducts()

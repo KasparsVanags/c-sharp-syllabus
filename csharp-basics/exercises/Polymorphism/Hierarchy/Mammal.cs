@@ -1,3 +1,5 @@
+using Hierarchy.Exceptions;
+
 namespace Hierarchy
 {
     public abstract class Mammal : Animal
@@ -6,6 +8,11 @@ namespace Hierarchy
 
         public Mammal(string name, double weight, string region) : base(name, weight)
         {
+            if (string.IsNullOrEmpty(region))
+            {
+                throw new InvalidNameException(nameof(region));
+            }
+            
             Region = region;
         }
 
